@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Text,
   TextInput,
@@ -13,43 +13,61 @@ const Login = ({
 }) => {
 
   const {
-    container,
+    content,
     input,
     text
   } = style;
 
   const {
+    container,
     buttonPrimary,
     buttonSecondary
   } = globalStyle;
+
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
 
     <View style={container}>
 
-      <Text style={text}>
-        Login:
-      </Text>
+      <View style={content}>
 
-      <TextInput style={input} />
-
-      <Text>
-        Password:
-      </Text>
-
-      <TextInput style={input} />
-
-      <TouchableOpacity style={buttonPrimary}>
-        <Text>
-          Login
+        <Text style={text}>
+          Username:
         </Text>
-      </TouchableOpacity>
 
-      <TouchableOpacity style={buttonSecondary}>
+        <TextInput
+          style={input}
+        />
+
         <Text>
-          Sign Up
+          Password:
         </Text>
-      </TouchableOpacity>
+
+        <TextInput
+          style={input}
+          // value={() => setPassword(val)}
+          secureTextEntry={true}
+        />
+
+        <TouchableOpacity style={buttonPrimary}>
+          <Text>
+            Login
+          </Text>
+        </TouchableOpacity>
+
+        <Text>
+          Don't have an account yet?
+        </Text>
+
+        <TouchableOpacity style={buttonSecondary}>
+          <Text>
+            Sign Up
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
 
   );
