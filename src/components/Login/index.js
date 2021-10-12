@@ -62,7 +62,10 @@ const Login = ({
           Don't have an account yet?
         </Text>
 
-        <TouchableOpacity style={buttonSecondary}>
+        <TouchableOpacity
+          style={buttonSecondary}
+          onPress={() => navigation.navigate('SignUp')}
+        >
           <Text>
             Sign Up
           </Text>
